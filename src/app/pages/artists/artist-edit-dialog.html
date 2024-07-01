@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Edit Artist</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="col-12">
+      <mat-label>Artist Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="form.get('name')!.hasError('required')">
+        Artist Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <mat-label>Genres</mat-label>
+      <input matInput formControlName="genres" required />
+      <mat-error *ngIf="form.get('genres')!.hasError('required')">
+        Genres are required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onSubmit()">Edit</button>
+</mat-dialog-actions>

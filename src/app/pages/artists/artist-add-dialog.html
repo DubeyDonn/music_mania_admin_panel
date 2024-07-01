@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Add Artist</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="col-12">
+      <mat-label>Artist Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="form.get('name')!.hasError('required')">
+        Artist Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <mat-label>Artist Genres</mat-label>
+      <input matInput formControlName="genres" required />
+      <mat-error *ngIf="form.get('genres')!.hasError('required')">
+        Artist Genres are required
+      </mat-error>
+    </mat-form-field>
+
+    <div class="col-12">
+      <mat-label>Artist Image* </mat-label>
+      <br />
+      <button
+        class="mt-2"
+        type="button"
+        mat-raised-button
+        (click)="fileInput.click()"
+      >
+        Choose File
+      </button>
+      <input
+        hidden
+        (change)="onFileSelected($event)"
+        #fileInput
+        type="file"
+        id="file"
+        required
+      />
+      <span *ngIf="selectedFileName">{{ selectedFileName }}</span>
+      <mat-error *ngIf="form.get('image')!.hasError('required')">
+        Audio File is required
+      </mat-error>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onSubmit()">Add</button>
+</mat-dialog-actions>

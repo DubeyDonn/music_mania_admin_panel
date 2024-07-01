@@ -8,6 +8,25 @@
     <!-- @for (nav of fillerNav; track nav) {
     <a mat-list-item routerLink=".">{{ nav }}</a>
     } -->
+
+    <a
+      mat-list-item
+      class="list-item"
+      [routerLink]="['/artists']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Artists
+    </a>
+    <a
+      mat-list-item
+      class="list-item"
+      [routerLink]="['/albums']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Albums
+    </a>
     <a
       mat-list-item
       class="list-item"
@@ -16,6 +35,33 @@
       [routerLinkActiveOptions]="{ exact: true }"
     >
       Songs
+    </a>
+    <a
+      mat-list-item
+      class="list-item"
+      [routerLink]="['/users']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Users
+    </a>
+    <a
+      mat-list-item
+      class="list-item"
+      [routerLink]="['/admins']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Admins
+    </a>
+    <a
+      mat-list-item
+      class="list-item"
+      [routerLink]="['/plans']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Plans
     </a>
 
     <!-- <app-dropdown-tree
